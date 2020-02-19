@@ -27,7 +27,7 @@ import org.restapi.service.MessageService;
 @Path("/messages")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class MyResource {
+public class MessageResource {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -81,6 +81,10 @@ public class MyResource {
 		return messageService.getMessage(id);
 	}
 	
+	@Path("/{messageId}/comments")
+	public CommentResource getCommentResource() {
+		return new CommentResource();
+	}
 	
 
 }
